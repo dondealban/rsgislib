@@ -9,3 +9,12 @@
 # Last modified:
 # ----------------------------------------------------------------------
 
+# !/usr/bin/env python
+
+# Import glob module
+import glob
+
+# Import required RSGISLib modules
+import rsgislib
+from rsgislib import imageutils
+
