@@ -28,3 +28,7 @@ outType = rsgislib.TYPE_32UINT
 # Get list of files in the data directory matching pattern '*_utm.kea'
 inputImageList = glob.glob("*_utm.kea")
 
+# Iterate through files within the directory
+for inputImage in inputImageList
+    print('Subsetting: ' + inputImage)
+
