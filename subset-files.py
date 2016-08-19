@@ -21,3 +21,7 @@ from rsgislib import imageutils
 # Set input bounding box vector for all files
 inputVector = 'bounding_box_utm.shp'
 
+# Set output data type and format
+outFormat = 'KEA'
+outType = rsgislib.TYPE_32UINT
+
