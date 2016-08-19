@@ -32,3 +32,9 @@ inputImageList = glob.glob("*_utm.kea")
 for inputImage in inputImageList
     print('Subsetting: ' + inputImage)
 
+    # Set name for output subsets by replacing '.kea' with '_sub.kea'
+    outputImage = inputImage.replace('.kea','_sub.kea')
+    print('Saving to: ' + outputImage)
+
+
+
