@@ -18,3 +18,6 @@ import glob
 import rsgislib
 from rsgislib import imageutils
 
+# Set input bounding box vector for all files
+inputVector = 'bounding_box_utm.shp'
+
