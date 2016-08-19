@@ -39,3 +39,5 @@ for inputImage in inputImageList
     # Implement subsetting of images
     imageutils.subset(inputImage, inputVector, outputImage, outputFormat, outputType)
 
+    # Calculate statistics and pyramids for faster display
+    imageutils.popImageStats(outputImage, True, 0., True)
