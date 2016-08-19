@@ -22,8 +22,8 @@ from rsgislib import imageutils
 inputVector = 'bounding_box_utm.shp'
 
 # Set output data type and format
-outFormat = 'KEA'
-outType = rsgislib.TYPE_32UINT
+outputFormat = 'KEA'
+outputType = rsgislib.TYPE_32UINT
 
 # Get list of files in the data directory matching pattern '*_utm.kea'
 inputImageList = glob.glob("*_utm.kea")
@@ -36,5 +36,6 @@ for inputImage in inputImageList
     outputImage = inputImage.replace('.kea','_sub.kea')
     print('Saving to: ' + outputImage)
 
-
+    # Implement subsetting of images
+    imageutils.subset(inputImage, inputVector, outputImage, outputFormat, outputType)
 
