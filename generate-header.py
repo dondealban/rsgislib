@@ -45,3 +45,122 @@ class UnTarHeader (object):
 
     def createHeader (self, inFileDIR):
         """Read in parameters from JAXA header file and writes and ENVI header file."""
+
+        # Change to file directory (can work with relative paths)
+        os.chdir(inFileDIR)
+
+        # Get name for all expected files
+        inHHFileList = glob.glob('*HH')
+        inHVFileList = glob.glob('*HV')
+        inDateFileList = glob.glob('*_date')
+        inIncFileList = glob.glob('*_linci')
+        inMaskFileList = glob.glob('*_mask')
+        inHeaderFileList = glob.glob('KC*.hdr')
+
+        if len(inHeaderFileList) == 1:
+            inHeaderFile = inHeaderFileList[0]
+        else:
+            raise Exception('Could not find header.')
+
+        # Open JAXA header file for reading (r)
+        inHeader = open(inHeaderFile, 'r')
+
+        inULat = ''
+        inULon = ''
+
+        # Get upper left coordinates from header
+        i = 1
+        for line in inHeader:
+            if i == 13:
+                inULat = line.strip()
+            elif i == 14:
+                inULon = line.strip()
+            i+=1
+
+        # Convert degrees to minutes
+        inULat = str(int(inULat) * 3600)
+        inULon = str(int(inULon) * 3600)
+
+        # Close header file
+        inHeader.close()
+
+        # Set up string with header information for 16-bit image
+        headerText = '''ENVI
+description = {
+ %s}
+samples = 4500
+lines   = 4500
+bands   = 1
+header offset = 0
+file type = ENVI Standard
+data type = 12
+interleave = bsq
+sensor type = Unknown
+byte order = 0
+map info = {Geographic Lat/Lon, 1.0000, 1.0000, %s, %s, 8.0000000000e-01, 8.0000000000e-01, WGS-84, units=Seconds}
+wavelength units = Unknown
+''' %(inHeaderFile, inULon, inULat)
+
+        # Set up string with header information for 8-bit ancillary files
+        headerTextByte = '''ENVI
+description = {
+ %s}
+samples = 4500
+lines   = 4500
+bands   = 1
+header offset = 0
+file type = ENVI Standard
+data type = 1
+interleave = bsq
+sensor type = Unknown
+byte order = 0
+map info = {Geographic Lat/Lon, 1.0000, 1.0000, %s, %s, 8.0000000000e-01, 8.0000000000e-01, WGS-84, units=Seconds}
+wavelength units = Unknown
+''' % (inHeaderFile, inULon, inULat)
+
+        # Initialise variables to be returned
+        inHHFile = None
+        inHVFile = None
+
+        # Check if files were found
+        # Write header to text file if they were
+        if len(inHHFileList) == 1:
+            inHHFile = inHHFileList[0]
+            inHHHeaderFile = inHHFile + '.hdr'
+            inHHHeader = open(inHHHeaderFile, 'w')
+            inHHHeader.write(headerText)
+            inHHHeader.close()
+
+        if len(inHVFileList) == 1:
+            inHVFile = inHVFileList[0]
+            inHVHeaderFile = inHVFile + '.hdr'
+            inHVHeader = open(inHVHeaderFile, 'w')
+            inHVHeader.write(headerText)
+            inHVHeader.close()
+
+        if len(inDateFileList) == 1:
+            inDateFile = inDateFileList[0]
+            inDateHeaderFile = inDateFile + '.hdr'
+            inDateHeader = open(inDateHeaderFile, 'w')
+            inDateHeader.write(headerText)
+            inDateHeader.close()
+
+        if len(inIncFileList) == 1:
+            inIncFile = inIncFileList[0]
+            inIncHeaderFile = inIncFile + '.hdr'
+            inIncHeader = open(inIncHeaderFile, 'w')
+            inIncHeader.write(headerText)
+            inIncHeader.close()
+
+        if len(inMaskFileList) == 1:
+            inMaskFile = inMaskFileList[0]
+            inMaskHeaderFile = inMaskFile + '.hdr'
+            inMaskHeader = open(inMaskHeaderFile, 'w')
+            inMaskHeader.write(headerText)
+            inMaskHeader.close()
+
+        # Return names of HH and HV files
+        return inHHFile, inHVFile
+
+
+
