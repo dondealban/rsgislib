@@ -18,7 +18,7 @@ import subprocess, os, sys, glob
 
 class UnTarHeader (object):
 
-    def unTar(self, inDIR, filename):
+    def unTar(self, inDIR, fileName):
         """Create directory for file and uncompresses the file to it."""
 
         # Check if directory exists (if it does assume already uncompressed)
