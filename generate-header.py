@@ -205,4 +205,17 @@ wavelength units = Unknown
                 except Exception as err:
                     print(err)
 
+if __name__ == '__main__':
 
+    # Check if an input directory has been passed in, and do not run if it has not
+    if len(sys.argv) >= 2:
+        inDIR = os.path.abspath(sys.argv[1])
+    else:
+        print('''Not enough parameters provided.
+Usage:
+    python generate-header.py inDIR
+''')
+        sys.exit()
+
+    obj = UnTarHeader()
+    obj.run(inDIR)
