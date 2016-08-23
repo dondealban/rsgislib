@@ -27,3 +27,7 @@ from rsgislib import imageutils
 outputFormat = 'KEA'
 outputType = rsgislib.TYPE_32UINT
 
+# Define calibration expressions for JERS-1 and ALOS/PALSAR datasets
+jers1Cal = '10^(2*log10(b1) - 8.466)'
+palsarCal = '10^(2*log10(b1) - 8.3)'
+
