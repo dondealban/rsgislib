@@ -45,3 +45,7 @@ for jers1Image in jers1ImageList
 
     # Implement calibration of images
     imagecalc.imageMath(jers1Image, outputImage, jers1Cal, outputFormat, outputType)
+
+    # Calculate image stats and create pyramids for faster displays
+    imageutils.popImageStats(outputImage, True, 0., True)
+    print('Calculating stats\n')
