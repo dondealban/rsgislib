@@ -10,3 +10,16 @@
 # Last modified:
 # ----------------------------------------------------------------------
 
+# !/usr/bin/env python
+
+# Import OS module
+import os
+
+# Import glob module
+import glob
+
+#Import RSGISLib modules
+import rsgislib
+from rsgislib import imagecalc
+from rsgislib import imageutils
+
