@@ -49,3 +49,7 @@ for jers1Image in jers1ImageList
     # Calculate image stats and create pyramids for faster displays
     imageutils.popImageStats(outputImage, True, 0., True)
     print('Calculating stats\n')
+
+# Iterate through ALOS/PALSAR files
+for palsarImage in palsarImageList
+    print('Calibrating: ' + palsarImage)
