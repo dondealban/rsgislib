@@ -41,3 +41,4 @@ for inputImage in inputImageList
 
     # Calculate statistics and pyramids for faster display
     imageutils.popImageStats(outputImage, True, 0., True)
+    print('Calculating stats\n')
