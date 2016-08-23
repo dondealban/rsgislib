@@ -31,3 +31,8 @@ outputType = rsgislib.TYPE_32UINT
 jers1Cal = '10^(2*log10(b1) - 8.466)'
 palsarCal = '10^(2*log10(b1) - 8.3)'
 
+# Get list of JERS-1 and ALOS/PALSAR scenes
+jers1ImageList = glob.glob("*JERS1*_utm_sub.kea")
+palsarImageList = glob.glob("*PALSAR_*_utm_sub.kea")
+
+
