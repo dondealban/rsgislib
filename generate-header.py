@@ -165,6 +165,44 @@ wavelength units = Unknown
     def run(self, inDIR):
         """Find files and decompress if extension is .tar.gz and make ENVI header file."""
 
+        fileList = []
+        os.chdir(inDIR)
 
+        # List files starting with KC
+        fileList = glob.glob('KC*')
+
+        # Iterate through files
+        for fileName in fileList:
+            print('*** ' + fileName + ' ***')
+
+            baseFile = None # Initialise to None
+
+            # Check if file is .tar.gz, and decompress if it is
+            if fileName.find('.tar.gz') > -1:
+                baseFile = fileName.replace('.tar.gz', '')
+                tarResult = self.unTar(inDIR, baseFile)
+            elif os.path.isdir(fileName):
+                baseFile = fileName
+            else:
+                print('Skipping: ' + fileName)
+
+            # If base file has been set, try to create header
+            if baseFile is not None:
+                try:
+                    inHHFile, inHVFile = self.createHeader(os.path.join(inDIR, baseFile))
+
+                    # Print HH and HV file names if they are returned
+                    # Could run gdal translate here to convert to other formats
+                    # See commented out lines
+                    if inHHFile is not None:
+                        print(' HH: ', inHHFile)
+                        # inHHFilePath = os.path.join(inDIR, baseFile, inHHFile)
+                        # gdalCMD = 'gdal_translate -of GTiff -ot Byte -scale 500 4000 {0} {1}'.format(inHHFilePath, inHHFilePath + '.tiff')
+                        # subprocess.call(gdalCMD, shell=True)
+
+                    if inHVfile is not None:
+                        print(' HV: ', inHVFile)
+                except Exception as err:
+                    print(err)
 
 
