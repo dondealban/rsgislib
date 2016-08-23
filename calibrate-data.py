@@ -41,4 +41,7 @@ for jers1Image in jers1ImageList
 
     # Set name for output images by replacing '.kea' with '_cal.kea'
     outputImage = jers1Image.replace('.kea','_cal.kea')
+    print('Saving to: ' + outputImage)
 
+    # Implement calibration of images
+    imagecalc.imageMath(jers1Image, outputImage, jers1Cal, outputFormat, outputType)
