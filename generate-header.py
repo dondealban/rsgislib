@@ -200,7 +200,7 @@ wavelength units = Unknown
                         # gdalCMD = 'gdal_translate -of GTiff -ot Byte -scale 500 4000 {0} {1}'.format(inHHFilePath, inHHFilePath + '.tiff')
                         # subprocess.call(gdalCMD, shell=True)
 
-                    if inHVfile is not None:
+                    if inHVFile is not None:
                         print(' HV: ', inHVFile)
                 except Exception as err:
                     print(err)
