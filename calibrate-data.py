@@ -23,3 +23,7 @@ import rsgislib
 from rsgislib import imagecalc
 from rsgislib import imageutils
 
+# Set output data type and format
+outputFormat = 'KEA'
+outputType = rsgislib.TYPE_32UINT
+
