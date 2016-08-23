@@ -162,5 +162,9 @@ wavelength units = Unknown
         # Return names of HH and HV files
         return inHHFile, inHVFile
 
+    def run(self, inDIR):
+        """Find files and decompress if extension is .tar.gz and make ENVI header file."""
+
+
 
 
