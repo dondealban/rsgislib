@@ -4,6 +4,8 @@
 # version of the original script developed by Dr Daniel Clewley
 # for the JAXA K&C 20 Global Mangrove Watch Workshop.
 #
+# Usage: script should be in the same directory as the .tar.gz files.
+#
 # Script modified by:   Jose Don T. De Alban
 # Date created:         23 Aug 2016
 # Last modified:
