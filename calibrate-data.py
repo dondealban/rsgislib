@@ -53,3 +53,10 @@ for jers1Image in jers1ImageList
 # Iterate through ALOS/PALSAR files
 for palsarImage in palsarImageList
     print('Calibrating: ' + palsarImage)
+
+    # Set name for output images by replacing '.kea' with '_cal.kea'
+    outputImage = palsarImage.replace('.kea', '_cal.kea')
+    print('Saving to: ' + outputImage)
+
+    # Implement calibration of images
+    imagecalc.imageMath(palsarImage, outputImage, palsarCal, outputFormat, outputType)
