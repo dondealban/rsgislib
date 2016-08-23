@@ -29,7 +29,7 @@ class UnTarHeader (object):
             subprocess.call(mkdirCommand, shell=True)
 
             # Copy .tar.gz file to it
-            cpCommand = 'cp ' + inDIR + '/' + fileName + '.tar.gz' + inDIR + '/' + fileName + '/'
+            cpCommand = 'cp ' + inDIR + '/' + fileName + '.tar.gz ' + inDIR + '/' + fileName + '/'
             subprocess.call(cpCommand, shell=True)
 
             # Change directory
