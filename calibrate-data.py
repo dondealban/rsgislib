@@ -35,4 +35,8 @@ palsarCal = '10^(2*log10(b1) - 8.3)'
 jers1ImageList = glob.glob("*JERS1*_utm_sub.kea")
 palsarImageList = glob.glob("*PALSAR_*_utm_sub.kea")
 
+# Iterate through JERS-1 files
+for jers1Image in jers1ImageList
+    print('Calibrating: ' + jers1Image)
+
 
