@@ -6,7 +6,7 @@
 #
 # Script modified by:   Jose Don T. De Alban
 # Date created:         19 Aug 2016
-# Last modified:
+# Last modified:        23 Aug 2016
 # ----------------------------------------------------------------------
 
 # !/usr/bin/env python
