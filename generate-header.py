@@ -19,7 +19,7 @@ import subprocess, os, sys, glob
 class UnTarHeader (object):
 
     def unTar(self, inDIR, filename):
-        """Creates directory for file and uncompresses the file to it."""
+        """Create directory for file and uncompresses the file to it."""
 
         # Check if directory exists (if it does assume already uncompressed)
         if not os.path.isdir(os.path.join(inDIR, fileName)):
@@ -43,3 +43,5 @@ class UnTarHeader (object):
             removeCommand = 'rm ' + fileName + '.tar.gz'
             subprocess.call(removeCommand, shell=True)
 
+    def createHeader (self, inFileDIR):
+        """Read in parameters from JAXA header file and writes and ENVI header file."""
