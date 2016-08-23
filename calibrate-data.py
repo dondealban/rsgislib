@@ -60,3 +60,7 @@ for palsarImage in palsarImageList
 
     # Implement calibration of images
     imagecalc.imageMath(palsarImage, outputImage, palsarCal, outputFormat, outputType)
+
+    # Calculate image stats and create pyramids for faster displays
+    imageutils.popImageStats(outputImage, True, 0., True)
+    print('Calculating stats\n')
