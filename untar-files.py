@@ -44,6 +44,30 @@ class UnTarFile (object):
             removeCommand = 'rm ' + fileName + '.tar.gz'
             subprocess.call(removeCommand, shell=True)
 
+    def run(self, inDIR):
+        """Find files and decompress if extension is .tar.gz."""
+
+        fileList = []
+        os.chdir(inDIR)
+
+        # List files starting with KC
+        fileList = glob.glob('KC*')
+
+        # Iterate through files
+        for fileName in fileList:
+            print('*** ' + fileName + ' ***')
+
+            baseFile = None # Initialise to None
+
+            # Check if file is .tar.gz, and decompress if it is
+            if fileName.find('.tar.gz') > -1:
+                baseFile = fileName.replace('.tar.gz', '')
+                tarResult = self.unTar(inDIR, baseFile)
+            elif os.path.isdir(fileName):
+                baseFile = fileName
+            else:
+                print('Skipping: ' + fileName)
+
 if __name__ == '__main__':
 
     # Check if an input directory has been passed in, and do not run if it has not
@@ -57,3 +81,4 @@ Usage:
         sys.exit()
 
     obj = UnTarFile()
+    obj.run(inDIR)
