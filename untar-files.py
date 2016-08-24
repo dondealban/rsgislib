@@ -17,3 +17,29 @@
 # Import required modules
 import subprocess, os, sys, glob
 
+class UnTarFile (object):
+
+    def unTar(self, inDIR, fileName):
+        """Create directory for file and uncompress the file into it."""
+
+        # Check if directory exists (if it does assume already uncompressed)
+        if not os.path.isdir(os.path.join(inDIR, fileName)):
+
+            # Make a directory
+            mkdirCommand = 'mkdir ' + inDIR + '/' + fileName
+            subprocess.call(mkdirCommand, shell=True)
+
+            # Copy .tar.gz file to it
+            cpCommand = 'cp ' + inDIR + '/' + fileName + '.tar.gz ' + inDIR + '/' + fileName + '/'
+            subprocess.call(cpCommand, shell=True)
+
+            # Change directory
+            os.chdir(inDIR + '/' + fileName)
+
+            # Decompress .tar.gz file
+            unzipCommand = 'tar -xf ' + fileName + '.tar.gz'
+            subprocess.call(unzipCommand, shell=True)
+
+            # Remove .tar.gz file that was copied in the directory
+            removeCommand = 'rm ' + fileName + '.tar.gz'
+            subprocess.call(removeCommand, shell=True)
