@@ -57,4 +57,3 @@ Usage:
         sys.exit()
 
     obj = UnTarFile()
-    obj.run(inDIR)
