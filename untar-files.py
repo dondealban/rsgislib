@@ -51,7 +51,7 @@ class UnTarFile (object):
         os.chdir(inDIR)
 
         # List files starting with KC
-        fileList = glob.glob('KC*')
+        fileList = glob.glob('*MOS*')
 
         # Iterate through files
         for fileName in fileList:
