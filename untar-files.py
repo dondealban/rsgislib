@@ -43,3 +43,18 @@ class UnTarFile (object):
             # Remove .tar.gz file that was copied in the directory
             removeCommand = 'rm ' + fileName + '.tar.gz'
             subprocess.call(removeCommand, shell=True)
+
+if __name__ == '__main__':
+
+    # Check if an input directory has been passed in, and do not run if it has not
+    if len(sys.argv) >= 2:
+        inDIR = os.path.abspath(sys.argv[1])
+    else:
+        print('''Not enough parameters provided.
+Usage:
+    python untar-files.py inDIR
+''')
+        sys.exit()
+
+    obj = UnTarFile()
+    obj.run(inDIR)
