@@ -50,7 +50,7 @@ class UnTarFile (object):
         fileList = []
         os.chdir(inDIR)
 
-        # List files starting with KC
+        # List files containing 'MOS' which denotes mosaic data
         fileList = glob.glob('*MOS*')
 
         # Iterate through files
