@@ -32,6 +32,7 @@ fileList = open('filelist.txt', 'w')
 
 # Search for specific files within directories then write file names in text file
 for root, dirs, files in os.walk('.'):
+    files = glob.glob("*HH_F02DAR")
     for targetfile in files:
         filename = os.path.join(targetfile)
         filestring = filename + '\n'
