@@ -18,5 +18,6 @@
 # Import required modules
 import os, glob
 
-
+# Get list of files matching the following file name patterns
+inputImageList = glob.glob("*HH*")
 
