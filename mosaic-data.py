@@ -36,5 +36,6 @@ for inDIR in os.walk('*HH_F02DAR'):
         filename = os.path.join(targetfile)
         filestring = filename + '\n'
         fileList.write(filestring)
+        print(filestring)
 
 
