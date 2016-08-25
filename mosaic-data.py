@@ -31,8 +31,8 @@ import os, glob
 fileList = open('filelist.txt', 'w')
 
 # Search for specific files within directories then write file names in text file
-for inDIR in os.walk('*HH_F02DAR'):
-    for targetfile in inDIR:
+for root, dirs, files in os.walk('*HH_F02DAR'):
+    for targetfile in files:
         filename = os.path.join(targetfile)
         filestring = filename + '\n'
         fileList.write(filestring)
