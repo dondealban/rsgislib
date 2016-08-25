@@ -7,16 +7,13 @@
 #
 # Script modified by:   Jose Don T. De Alban
 # Date created:         23 Aug 2016
-# Last modified:
+# Last modified:        25 Aug 2016
 # ----------------------------------------------------------------------
 
 # !/usr/bin/env python
 
-# Import OS module
-import os
-
-# Import glob module
-import glob
+# Import required modules
+import glob, os
 
 #Import RSGISLib modules
 import rsgislib
