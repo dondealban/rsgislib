@@ -19,5 +19,14 @@
 import os, glob
 
 # Get list of files matching the following file name patterns
-inputImageList = glob.glob("*HH*")
+# inputImageList = glob.glob("*HH*")
+
+# Iterate through files within the directory
+# for inputImage in inputImageList
+#    print('Subsetting: ' + inputImage)
+#    Set name for output subsets by replacing '.kea' with '_sub.kea'
+#    outputImage = inputImage.replace('.kea','_sub.kea')
+
+# Create text file that will contain list of specific file names
+fileList = open('filelist.txt', 'w')
 
