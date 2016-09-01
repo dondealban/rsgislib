@@ -19,7 +19,7 @@
 import os, glob
 
 # Create text file that will contain list of specific file names
-fileList = open('filelist.txt', 'w')
+with open('filelist.txt', 'w') as fileList:
 
 # Search for specific files within directories then write file names in text file
 for root, dirs, files in os.walk('.'):
