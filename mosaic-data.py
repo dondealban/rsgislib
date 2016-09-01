@@ -25,9 +25,8 @@ with open('filelist.txt', 'w') as fileList:
 for path, subdirs, files in os.walk('.'):
     for targetfile in files:
         # targetfile = glob.glob("*HH_F02DAR")
-        filename = os.path.join(targetfile)
-        filestring = filename + '\n'
-        fileList.write(filestring)
+        filename = os.path.join(path, targetfile)
+        fileList.write(str(filestring) + os.linesep)
 
 
 
