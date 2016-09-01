@@ -16,7 +16,7 @@
 # !/usr/bin/env python
 
 # Import required modules
-import os, glob
+import os, fnmatch
 
 # Create text file that will contain list of specific file names
 with open('filelist.txt', 'w') as fileList:
@@ -24,7 +24,7 @@ with open('filelist.txt', 'w') as fileList:
 # Search for specific files within directories then write file names in text file
 for path, subdirs, files in os.walk('.'):
     for targetfile in files:
-        # targetfile = glob.glob("*HH_F02DAR")
+        targetfile = glob.glob("*HH_F02DAR")
         filename = os.path.join(path, targetfile)
         fileList.write(str(filestring) + os.linesep)
 
