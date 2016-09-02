@@ -91,7 +91,7 @@ def getGDALFormat(fileName):
     elif extension == '.img':
         gdalStr = 'HFA'
     else:
-        raise exception('Type not recognised.\n')
+        raise Exception('Type not recognised.\n')
     return gdalStr
 
 # Print help text
@@ -108,7 +108,7 @@ parser.add_argument("-s", "--search", type=str, required=True, help="Search stri
 parser.add_argument("-o", "--outmosaic", type=str, required=True, help="Output mosaic file.")
 parser.add_argument("-l", '--outlist', type=str, default=None, help="Output text file with list of files in mosaic (optional).")
 parser.add_argument("-ot", '--datatype', type=str, default='Float32', help="Data type.")
-parser.add_argument("--backgroundval", type=float, default=0, help="Backgroud value; default is 0.")
+parser.add_argument("--backgroundval", type=float, default=0, help="Background value; default is 0.")
 parser.add_argument("--skipval", type=float, default=0, help="No data values to be skipped in the input images; default is 0.")
 parser.add_argument("--skipband", type=int, default=1, help="Band to check for skip value, default is 1.")
 parser.add_argument("--minpix", action='store_true', default=False, help="Use minimum pixel in overlap areas; default use last image in.")
