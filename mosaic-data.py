@@ -78,7 +78,7 @@ def getRSGISLibDataType(gdaltype):
     elif gdaltype == 'float64':
         return rsgislib.TYPE_64FLOAT
 
-def getGDALFormat(filename):
+def getGDALFormat(fileName):
     """Get GDAL format based on filename."""
     gdalStr = ''
     extension = os.path.splitext(fileName)[-1]
