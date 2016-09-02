@@ -136,22 +136,23 @@ outFormat = getGDALFormat(args.outmosaic)
 # Find all files recursively in the input directory using the specified search string
 fileList = []
 
-
-
-
-
-
-# Create text file that will contain list of specific file names
-with open('filelist.txt', 'w') as fileList:
-
 # Search for specific files within directories then write file names in text file
-for path, subdirs, files in os.walk(inDIR):
-    for targetfile in files:
-        if fnmatch.fnmatch(targetfile, pattern): # Match search string
-            fileList.append(os.path.join(path, targetfile))
-        # targetfile = glob.glob("*HH_F02DAR")
-        # filename = os.path.join(path, targetfile)
-        # fileList.write(str(filestring) + os.linesep)
+for dName, sdName, fList in os.walk(args.indir):
+    for fileName in fList:
+        if fnmatch.fnmatch(fileName, args.search): # Match search string
+            fileList.append(os.path.join(dName, fileName))
 
+    fileCount = len(fileList)
 
+    if fileCount == 0:
+        print('ERROR: No files found.')
+        sys.exit()
+    else:
+        print('Found %i files'%fileCount)
 
+# Save list of files
+if args.outlist is not None:
+    outFile = open(args.outlist, 'w')
+    for fileName in fileList:
+        outFile.write(fileName + '\n')
+    outFile.close()
