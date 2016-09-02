@@ -12,9 +12,9 @@ A brief description of the scripts is as follows including the order of executio
 
 * untar-files.py -- decompresses the tar.gz file into a directory with the same name as the tar.gz file
 * mosaic-data.py -- creates a mosaic image using the input parameters set at command line
-* subset-files.py -- creates subset of the images that fits a specified file type
-    *
-* calibrate-data.py -
+* subset-files.py -- subsets the images that fits a specified file type and a given vector shapefile
+    * Note that the specified file type and bounding box shapefile are currently hardcoded in the script
+* calibrate-data.py -- calibrates the mosaic data to power (non-dB) values
 
 [1]: http://www.rsgislib.org/index.html "Remote Sensing and GIS SOftware Library"
 [2]: http://www.eorc.jaxa.jp/ALOS/en/palsar_fnf/data/index.htm "JAXA Global PALSAR Mosaic and FNF Maps"
