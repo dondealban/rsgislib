@@ -81,7 +81,7 @@ def getRSGISLibDataType(gdaltype):
 def getGDALFormat(filename):
     """Get GDAL format based on filename."""
     gdalStr = ''
-    extension = os.path.splitext(filename)[-1]
+    extension = os.path.splitext(fileName)[-1]
     if extension == '.env':
         gdalStr = 'ENVI'
     elif extension == '.kea':
@@ -91,7 +91,7 @@ def getGDALFormat(filename):
     elif extension == '.img':
         gdalStr = 'HFA'
     else:
-        raise exception('Type not recognised.')
+        raise exception('Type not recognised.\n')
     return gdalStr
 
 # Print help text
@@ -106,8 +106,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--indir", type=str, required=True, help="Input directory to search recursively.")
 parser.add_argument("-s", "--search", type=str, required=True, help="Search string, e.g., '*kea', must be in quotes.")
 parser.add_argument("-o", "--outmosaic", type=str, required=True, help="Output mosaic file.")
-parser.add_argument("-l", "--outlist", type=str, default=None, help="Output text file with list of files in mosaic (optional).")
-parser.add_argument("-ot", "--datatype", type=str, default='Float32', help="Data type.")
+parser.add_argument("-l", '--outlist', type=str, default=None, help="Output text file with list of files in mosaic (optional).")
+parser.add_argument("-ot", '--datatype', type=str, default='Float32', help="Data type.")
 parser.add_argument("--backgroundval", type=float, default=0, help="Backgroud value; default is 0.")
 parser.add_argument("--skipval", type=float, default=0, help="No data values to be skipped in the input images; default is 0.")
 parser.add_argument("--skipband", type=int, default=1, help="Band to check for skip value, default is 1.")
@@ -127,7 +127,7 @@ elif args.maxpix:
 else:
     print("Using values of last image for overlapping areas.\n")
 if args.minpix and args.maxpix:
-    print("ERROR: Either '--minpix' or '--maxpix' expected, not both.")
+    print("ERROR: Either '--minpix' or '--maxpix' expected, not both.\n")
     sys.exit()
 
 # Get output extension from input file
@@ -145,7 +145,7 @@ for dName, sdName, fList in os.walk(args.indir):
     fileCount = len(fileList)
 
     if fileCount == 0:
-        print('ERROR: No files found.')
+        print('ERROR: No files found.\n')
         sys.exit()
     else:
         print('Found %i files\n'%fileCount)
