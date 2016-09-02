@@ -57,26 +57,26 @@ from rsgislib import imageutils
 def getRSGISLibDataType(gdaltype):
     """Get RSGISLib data type."""
     gdaltype = gdaltype.lower()
-        if gdaltype == 'byte' or gdaltype =='int8':
-            return rsgislib.TYPE_8INT
-        elif gdaltype == 'int16':
-            return rsgislib.TYPE_16INT
-        elif gdaltype == 'int32':
-            return rsgislib.TYPE_32INT
-        elif gdaltype == 'int64':
-            return rsgislib.TYPE_64INT
-        elif gdaltype == 'uint8':
-            return rsgislib.TYPE_8UINT
-        elif gdaltype == 'uint16':
-            return rsgislib.TYPE_16UINT
-        elif gdaltype == 'uint32':
-            return rsgislib.TYPE_32UINT
-        elif gdaltype == 'uint64':
-            return rsgislib.TYPE_64UINT
-        elif gdaltype == 'float32':
-            return rsgislib.TYPE_32FLOAT
-        elif gdaltype == 'float64':
-            return rsgislib.TYPE_64FLOAT
+    if gdaltype == 'byte' or gdaltype =='int8':
+        return rsgislib.TYPE_8INT
+    elif gdaltype == 'int16':
+        return rsgislib.TYPE_16INT
+    elif gdaltype == 'int32':
+        return rsgislib.TYPE_32INT
+    elif gdaltype == 'int64':
+        return rsgislib.TYPE_64INT
+    elif gdaltype == 'uint8':
+        return rsgislib.TYPE_8UINT
+    elif gdaltype == 'uint16':
+        return rsgislib.TYPE_16UINT
+    elif gdaltype == 'uint32':
+        return rsgislib.TYPE_32UINT
+    elif gdaltype == 'uint64':
+        return rsgislib.TYPE_64UINT
+    elif gdaltype == 'float32':
+        return rsgislib.TYPE_32FLOAT
+    elif gdaltype == 'float64':
+        return rsgislib.TYPE_64FLOAT
 
 def getGDALFormat(filename):
     """Get GDAL format based on filename."""
