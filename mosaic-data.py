@@ -133,6 +133,8 @@ args = parser.parse_args()
 # Get output extension from input file
 outFormat = getGDALFormat(args.outmosaic)
 
+# Find all files recursively in the input directory using the specified search string
+fileList = []
 
 
 
