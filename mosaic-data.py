@@ -148,7 +148,7 @@ for dName, sdName, fList in os.walk(args.indir):
         print('ERROR: No files found.')
         sys.exit()
     else:
-        print('Found %i files'%fileCount)
+        print('Found %i files\n'%fileCount)
 
 # Save list of files
 if args.outlist is not None:
@@ -156,3 +156,13 @@ if args.outlist is not None:
     for fileName in fileList:
         outFile.write(fileName + '\n')
     outFile.close()
+
+# Indicate processing status
+print('Creating mosaic...\n')
+t = rsgislib.RSGISTime()
+t.start(True)
+imageutils.createImageMosaic(fileList, args.outmosaic, args.backgroundval, args.skipval, args.skipband, overlapBehaviour, outFormat, getRSGISLibDataType(args.datatype))
+t.end()
+
+
+
