@@ -101,6 +101,39 @@ print('This script was distributed with RSGISLib 2.3.1122.')
 print('Copyright (C) 2014 Peter Bunting and Daniel Clewley.')
 print('For support please email rsgislib-support[at]googlegroups.com\n')
 
+# Get input parameters
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--indir", type=str, required=True, help="Input directory to search recursively.")
+parser.add_argument("-s", "--search", type=str, required=True, help="Search string, e.g., '*kea', must be in quotes.")
+parser.add_argument("-o", "--outmosaic", type=str, required=True, help="Output mosaic file.")
+parser.add_argument("-l", "--outlist", type=str, default=None, help="Output text file with list of files in mosaic (optional).")
+parser.add_argument("-ot", "--datatype", type=str, default='Float32', help="Data type.")
+parser.add_argument("--backgroundval", type=float, default=0, help="Backgroud value; default is 0.")
+parser.add_argument("--skipval", type=float, default=0, help="No data values to be skipped in the input images; default is 0.")
+parser.add_argument("--skipband", type=int, default=1, help="Band to check for skip value, default is 1.")
+parser.add_argument("--minpix", action='store_true', default=False, help="Use minimum pixel in overlap areas; default use last image in.")
+parser.add_argument("--maxpix", action='store_true', default=False, help="Use maximum pixel in overlap areas; default use last image in.")
+parser.add_argument("--nostats", action='store_true', default=False, help="Do not calculate statistics and pyramids for mosaic; default is to calculate.")
+args = parser.parse_args()
+
+# Specify actions for arguments on overlapping areas
+    overlapBehaviour = 0
+    if args.minpix:
+        print("Taking minimum pixel in band {} for overlapping areas.\n".format(args.skipband))
+        overlapBehaviour = 1
+    elif args.maxpix:
+        print("Taking maximum pixel in band {} for overlapping areas.\n".format(args.skipband))
+        overlapBehaviour = 2
+    else:
+        print("Using values of last image for overlapping areas.\n")
+    if args.minpix and args.maxpix:
+        print("ERROR: Either '--minpix' or '--maxpix' expected, not both.")
+        sys.exit()
+
+
+
+
+
 
 # Create text file that will contain list of specific file names
 with open('filelist.txt', 'w') as fileList:
