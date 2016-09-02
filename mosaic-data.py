@@ -130,6 +130,10 @@ args = parser.parse_args()
         print("ERROR: Either '--minpix' or '--maxpix' expected, not both.")
         sys.exit()
 
+# Get output extension from input file
+outFormat = getGDALFormat(args.outmosaic)
+
+
 
 
 
