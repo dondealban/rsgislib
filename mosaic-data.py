@@ -142,13 +142,13 @@ for dName, sdName, fList in os.walk(args.indir):
         if fnmatch.fnmatch(fileName, args.search): # Match search string
             fileList.append(os.path.join(dName, fileName))
 
-    fileCount = len(fileList)
+fileCount = len(fileList)
 
-    if fileCount == 0:
-        print('ERROR: No files found.\n')
-        sys.exit()
-    else:
-        print('Found %i files\n'%fileCount)
+if fileCount == 0:
+    print('ERROR: No files found.\n')
+    sys.exit()
+else:
+    print('Found %i files\n'%fileCount)
 
 # Save list of files
 if args.outlist is not None:
