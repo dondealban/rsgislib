@@ -40,12 +40,18 @@
 # Email:    daniel.clewley[at]gmail.com
 # Date:     28/08/2013
 # Version:  1.0
+#
 # ----------------------------------------------------------------------
 
 # !/usr/bin/env python
 
 # Import required modules
-import os, fnmatch
+import os, sys
+import argparse
+import fnmatch
+import rsgislib
+from rsgislib import imageutils
+
 
 # Initialise variables
 inDIR = '/Users/dondealban/Tanintharyi/'
