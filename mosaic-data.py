@@ -164,5 +164,10 @@ t.start(True)
 imageutils.createImageMosaic(fileList, args.outmosaic, args.backgroundval, args.skipval, args.skipband, overlapBehaviour, outFormat, getRSGISLibDataType(args.datatype))
 t.end()
 
-
-
+# In case argument requires statistics and pyramids
+if not args.nostats:
+    print('\nCalculating statistics and pyramids...\n')
+    t.start(True)
+    imageutils.popImageStats(args.outmosaic, True, 0., True)
+    t.end()
+    print('Finished.\n')
