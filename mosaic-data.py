@@ -55,6 +55,7 @@ from rsgislib import imageutils
 
 # Define functions
 def getRSGISLibDataType(gdaltype):
+    """Get RSGISLib data type."""
     gdaltype = gdaltype.lower()
         if gdaltype == 'byte' or gdaltype =='int8':
             return rsgislib.TYPE_8INT
@@ -93,7 +94,12 @@ def getGDALFormat(filename):
         raise exception('Type not recognised.')
     return gdalStr
 
-
+# Print help text
+print('\n')
+print('This script provides command line utility for mosaicking files.')
+print('This script was distributed with RSGISLib 2.3.1122.')
+print('Copyright (C) 2014 Peter Bunting and Daniel Clewley.')
+print('For support please email rsgislib-support[at]googlegroups.com\n')
 
 
 # Create text file that will contain list of specific file names
