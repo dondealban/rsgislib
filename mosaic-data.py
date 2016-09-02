@@ -117,18 +117,18 @@ parser.add_argument("--nostats", action='store_true', default=False, help="Do no
 args = parser.parse_args()
 
 # Specify actions for arguments on overlapping areas
-    overlapBehaviour = 0
-    if args.minpix:
-        print("Taking minimum pixel in band {} for overlapping areas.\n".format(args.skipband))
-        overlapBehaviour = 1
-    elif args.maxpix:
-        print("Taking maximum pixel in band {} for overlapping areas.\n".format(args.skipband))
-        overlapBehaviour = 2
-    else:
-        print("Using values of last image for overlapping areas.\n")
-    if args.minpix and args.maxpix:
-        print("ERROR: Either '--minpix' or '--maxpix' expected, not both.")
-        sys.exit()
+overlapBehaviour = 0
+if args.minpix:
+    print("Taking minimum pixel in band {} for overlapping areas.\n".format(args.skipband))
+    overlapBehaviour = 1
+elif args.maxpix:
+    print("Taking maximum pixel in band {} for overlapping areas.\n".format(args.skipband))
+    overlapBehaviour = 2
+else:
+    print("Using values of last image for overlapping areas.\n")
+if args.minpix and args.maxpix:
+    print("ERROR: Either '--minpix' or '--maxpix' expected, not both.")
+    sys.exit()
 
 # Get output extension from input file
 outFormat = getGDALFormat(args.outmosaic)
