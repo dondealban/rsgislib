@@ -53,10 +53,48 @@ import rsgislib
 from rsgislib import imageutils
 
 
-# Initialise variables
-inDIR = '/Users/dondealban/Tanintharyi/'
-pattern = '*HH*'
-fileList = []
+# Define functions
+def getRSGISLibDataType(gdaltype):
+    gdaltype = gdaltype.lower()
+        if gdaltype == 'byte' or gdaltype =='int8':
+            return rsgislib.TYPE_8INT
+        elif gdaltype == 'int16':
+            return rsgislib.TYPE_16INT
+        elif gdaltype == 'int32':
+            return rsgislib.TYPE_32INT
+        elif gdaltype == 'int64':
+            return rsgislib.TYPE_64INT
+        elif gdaltype == 'uint8':
+            return rsgislib.TYPE_8UINT
+        elif gdaltype == 'uint16':
+            return rsgislib.TYPE_16UINT
+        elif gdaltype == 'uint32':
+            return rsgislib.TYPE_32UINT
+        elif gdaltype == 'uint64':
+            return rsgislib.TYPE_64UINT
+        elif gdaltype == 'float32':
+            return rsgislib.TYPE_32FLOAT
+        elif gdaltype == 'float64':
+            return rsgislib.TYPE_64FLOAT
+
+def getGDALFormat(filename):
+    """Get GDAL format based on filename."""
+    gdalStr = ''
+    extension = os.path.splitext(filename)[-1]
+    if extension == '.env':
+        gdalStr = 'ENVI'
+    elif extension == '.kea':
+        gdalStr = 'KEA'
+    elif extension == '.tif':
+        gdalStr = 'GTiff'
+    elif extension == '.img':
+        gdalStr = 'HFA'
+    else:
+        raise exception('Type not recognised.')
+    return gdalStr
+
+
+
 
 # Create text file that will contain list of specific file names
 with open('filelist.txt', 'w') as fileList:
