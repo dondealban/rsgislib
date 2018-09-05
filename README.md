@@ -8,7 +8,7 @@ A brief description of the scripts is as follows including the order of executio
 - untar-files.py -- decompresses the tar.gz file into a directory with the same name as the tar.gz file
 - generate-header.py -- decompresses tar.gz file into a directory and creates header files for each image inside
 
-*For working with mosaics downloaded through the [JAXA portal][2], note that the images within tar.gz files already contain header files. Hence, the generate-header.py can be skipped. The scripts may be executed as follows:*
+*For working with mosaics downloaded through the [JAXA portal][2], note that the images within tar.gz files already contain header files. Hence, the generate header script can be skipped. The scripts may be executed as follows:*
 
 - untar-files.py -- decompresses the tar.gz file into a directory with the same name as the tar.gz file
 - mosaic-data.py -- creates a mosaic image using the input parameters set at command line
